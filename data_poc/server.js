@@ -3,7 +3,7 @@
 const express = require("express");
 const { v4: uuidv4 } = require('uuid');
 const fs = require("fs");
-const dbJSON = require("./db.json");
+const dbJSON = require("../data_poc/db.json");
 const path = require("path");
 const { notStrictEqual } = require("assert");
 
@@ -28,15 +28,30 @@ app.get("/", function(req, res) {
 });
 
 app.get("/notes", function(req, res) {
-  res.sendFile(path.join(__dirname, "../Develop/public/notes.html"))
+  res.sendFile(path.join(__dirname, "../public/notes.html"))
 });
 
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../Develop/public/index.html"))
+// app.get("/api/notes", function(req, res) {
+//   return res.json(dbJSON);
+// });
+
+// app.post("/api/notes", function(req, res) {
+//   if (dbJSON) {
+//     dbJSON.push(req.body);
+//     res.json(true);
+//   }
+//   else {
+//     res.json(false);
+//   }
+// });
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/index.html"))
 });
 
 app.get("/note", function(req, res) {
   res.json(dbJSON);
+  console.log(dbJSON);
 });
 
 app.post("/note", function(req, res) {
