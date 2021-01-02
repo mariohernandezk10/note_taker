@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const path = require("path");
-const dbJSON = require("./db.json");
+let dbJSON = require("./db.json");
 const {
     v4: uuidv4
 } = require('uuid');
@@ -61,11 +61,22 @@ router.delete(`/api/notes/:id`, function (req, res) {
     console.log(req.params.id);
     let id = req.params.id;
     const updatedDb = dbJSON.filter((note) => note.id !== id);
+    dbJSON = updatedDb;
 
 
-    return writeFile("./db.json", JSON.stringify(updatedDb));
+    // return writeFile("./db.json", JSON.stringify(updatedDb));
+    // return writeFile("./routes/db.json", JSON.stringify(updatedDb));
+    fs.writeFile(path.join(__dirname, "db.json"), JSON.stringify(dbJSON), (err) => {
+        if (err) {
+            return res.json({
+                error: "Error writing to file"
+            });
+        }
 
-    res.send('Got a DELETE request at /user')
+        return res.json(updatedDb);
+    });
+
+    // res.send('Got a DELETE request at /user')
 
 });
 
