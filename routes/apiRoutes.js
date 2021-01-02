@@ -1,8 +1,12 @@
 const router = require("express").Router();
 const path = require("path");
 const dbJSON = require("./db.json");
-const { v4: uuidv4 } = require('uuid');
+const {
+    v4: uuidv4
+} = require('uuid');
 const fs = require("fs");
+const util = require("util")
+const writeFile = util.promisify(fs.writeFile);
 
 // you need to read the file (fs)readfile and then return saved results
 // fs.readFile(__dirname + "/db.json", function(err, data) {
@@ -12,12 +16,12 @@ const fs = require("fs");
 
 router.get("/api/notes", function (req, res) {
     res.json(dbJSON);
-    console.log(dbJSON);
+    // console.log(dbJSON);
 });
 
 
 router.post("/api/notes", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     // Validate request body
     if (!req.body.title) {
         return res.json({
@@ -48,8 +52,21 @@ router.post("/api/notes", function (req, res) {
     });
 });
 
-router.delete("/api/notes/:id", function (req, res) {
-    res.json("Note deleted");
+// router.delete("/api/notes/:id", function (req, res) {
+//     res.json("Note deleted");
+// });
+
+router.delete(`/api/notes/:id`, function (req, res) {
+
+    console.log(req.params.id);
+    let id = req.params.id;
+    const updatedDb = dbJSON.filter((note) => note.id !== id);
+
+
+    return writeFile("./db.json", JSON.stringify(updatedDb));
+
+    res.send('Got a DELETE request at /user')
+
 });
 
 module.exports = router
