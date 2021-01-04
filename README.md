@@ -1,35 +1,50 @@
-# How can we save data to our app?
-
+# weather_dash
+![GitHub license](https://img.shields.io/badge/license-APACHE 2.0-blue.svg)
+​
 ## Description
-  * One way can do this is save it to a file. This code is a proof of concept of how we can save data to a file and read data.
+​
+This app allows you to create and delete notes.
 
+Deploy app: https://calm-wave-11358.herokuapp.com/
 
-# Make request to read data
+Screenshot:
+![alt text](public/img/index.png)
+![alt text](public/img/notes.png)
+​
+## Table of Contents 
+​
+* [Installation](#installation)
+​
+* [Usage](#usage)
+​
+* [License](#license)
+​
+* [Contributing](#contributing)
+​
+* [Tests](#tests)
+​
+* [Questions](#questions)
+​
+## Installation
+​
+To install necessary dependencies, run the following command:
+​
 ```
-  Request GET => http://localhost:3000/note
-
-  Response: 200
-  [
-    {
-        "title": "Christmas List",
-        "text": "PS5",
-        "id": "e0178edc-f46f-4b8d-a386-4b422f4fb390"
-    }
-  ]
+npm i
 ```
+​
+## Usage
+​
+Free to use; have fun :)
+​
+## License
+​
+This project is licensed under the APACHE 2.0 license.
+  
+## Contributing
+​
 
-# Make post request to save:
-```
-  Request POST => http://localhost:3000/note
-  {
-      "title": "Christmas List",
-      "text": "PS5"
-  }
-
-  Response: 200
-  {
-    "title": "Christmas List",
-    "text": "PS5",
-    "id": "e0178edc-f46f-4b8d-a386-4b422f4fb390"
-  }
-```
+​
+## Questions
+​
+If you have any questions about the repo, open an issue or contact me directly at mariohernandezk10@gmail.com. You can find more of my work at [MarioHernandez](https://github.com/mariohernandezk10/weather_dash).
