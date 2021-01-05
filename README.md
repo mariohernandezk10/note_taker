@@ -47,4 +47,4 @@ This project is licensed under the APACHE 2.0 license.
 ​
 ## Questions
 ​
-If you have any questions about the repo, open an issue or contact me directly at mariohernandezk10@gmail.com. You can find more of my work at [MarioHernandez](https://github.com/mariohernandezk10/weather_dash).
+If you have any questions about the repo, open an issue or contact me directly at mariohernandezk10@gmail.com. You can find more of my work at [MarioHernandez](https://github.com/mariohernandezk10/note_taker).
