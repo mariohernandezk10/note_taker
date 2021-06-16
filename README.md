@@ -32,6 +32,11 @@ To install necessary dependencies, run the following command:
 ```
 npm i
 ```
+After installing dependencies, run the following command:
+​
+```
+node server
+```
 ​
 ## Usage
 ​
